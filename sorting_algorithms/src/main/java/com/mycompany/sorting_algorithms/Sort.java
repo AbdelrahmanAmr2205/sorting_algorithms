@@ -10,7 +10,7 @@ package com.mycompany.sorting_algorithms;
  */
 public class Sort {
     private int[] arr;
-    private Sortable sortingAlgorithm;
+    private SortingStrategy sortingAlgorithm;
 
     public Sort() {
     }
@@ -19,7 +19,7 @@ public class Sort {
         this.arr = arr;
     }
 
-    public Sort(int[] arr, Sortable sortingAlgorithm) {
+    public Sort(int[] arr, SortingStrategy sortingAlgorithm) {
         this.arr = arr;
         this.sortingAlgorithm = sortingAlgorithm;
     }
@@ -28,7 +28,7 @@ public class Sort {
         this.arr = arr;
     }
 
-    public void setSortingAlgorithm(Sortable sortingAlgorithm) {
+    public void setSortingAlgorithm(SortingStrategy sortingAlgorithm) {
         this.sortingAlgorithm = sortingAlgorithm;
     }
     
