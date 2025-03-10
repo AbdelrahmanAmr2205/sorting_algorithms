@@ -15,14 +15,13 @@ public class CompareAlgorithms {
     private static CompareAlgorithms comparison;
 
     private CompareAlgorithms() {
-        sortingAlgorithms= new SortingStrategy[]{new SelectionSort(), new BubbleSort(), new InsertionSort(), new MergeSort(), new QuickSort()};
+        sortingAlgorithms= new SortingStrategy[]{new SelectionSort(), new BubbleSort(), new InsertionSort(), new MergeSort(), new QuickSort(), new HeapSort()};
         numberOfAlgorithms= sortingAlgorithms.length;
     }
 
     private CompareAlgorithms(int[] arr) {
+        this();
         this.arr = arr;
-        sortingAlgorithms= new SortingStrategy[]{new SelectionSort(), new BubbleSort(), new InsertionSort(), new MergeSort(), new QuickSort()};
-        numberOfAlgorithms= sortingAlgorithms.length;
     }
     
     public static CompareAlgorithms getInstance(){
