@@ -12,9 +12,9 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args){
-        final int noOfAlgorithms= 5, noOfSamples= 7;
+        CompareAlgorithms comparison= CompareAlgorithms.getInstance(generateRandomArray(1000));
+        final int noOfAlgorithms= comparison.getNumberOfAlgorithms(), noOfSamples= 7;
         long[][] executionTime= new long[noOfSamples][noOfAlgorithms];
-        CompareAlgorithms comparison= new CompareAlgorithms(generateRandomArray(1000));
         executionTime[0]= comparison.compare();
         for(int i=0; i < noOfSamples - 1; i++ ){
             comparison.setArray(generateRandomArray(25000 * (int)Math.pow(2, i)));
@@ -34,8 +34,11 @@ public class Main {
                 case 3:
                     System.out.print("Merge Sort: ");
                     break;
-                    case 4:
+                case 4:
                     System.out.print("Quick Sort: ");
+                    break;
+                case 5:
+                    System.out.print("Heap Sort: ");
                     break;
             }
             for(int j= 0; j < noOfSamples; j++){

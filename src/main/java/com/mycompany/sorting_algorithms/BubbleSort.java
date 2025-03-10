@@ -9,5 +9,10 @@ package com.mycompany.sorting_algorithms;
  * @author boody
  */
 public class BubbleSort implements SortingStrategy {
+
+    @Override
+    public int[] sort(int[] arr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

@@ -8,11 +8,10 @@ package com.mycompany.sorting_algorithms;
  *
  * @author boody
  */
-public class QuickSort implements SortingStrategy {
-
-    @Override
-    public int[] sort(int[] arr) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+public class Utilities {
+    public static void swap(int[] arr, int i, int j){
+        int temp= arr[i];
+        arr[i]= arr[j];
+        arr[j]= temp;
     }
-    
 }

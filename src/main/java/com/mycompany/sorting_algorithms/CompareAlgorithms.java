@@ -10,26 +10,50 @@ package com.mycompany.sorting_algorithms;
  */
 public class CompareAlgorithms {
     private int[] arr;
-    private SortingStrategy[] sortingAlgorithm;
+    private SortingStrategy[] sortingAlgorithms;
+    private final int numberOfAlgorithms; 
+    private static CompareAlgorithms comparison;
 
-    public CompareAlgorithms() {
-        sortingAlgorithm= new SortingStrategy[]{new SelectionSort(), new BubbleSort(), new InsertionSort(), new MergeSort(), new QuickSort()};
+    private CompareAlgorithms() {
+        sortingAlgorithms= new SortingStrategy[]{new SelectionSort(), new BubbleSort(), new InsertionSort(), new MergeSort(), new QuickSort()};
+        numberOfAlgorithms= sortingAlgorithms.length;
     }
 
-    public CompareAlgorithms(int[] arr) {
+    private CompareAlgorithms(int[] arr) {
         this.arr = arr;
-        sortingAlgorithm= new SortingStrategy[]{new SelectionSort(), new BubbleSort(), new InsertionSort(), new MergeSort(), new QuickSort()};
+        sortingAlgorithms= new SortingStrategy[]{new SelectionSort(), new BubbleSort(), new InsertionSort(), new MergeSort(), new QuickSort()};
+        numberOfAlgorithms= sortingAlgorithms.length;
+    }
+    
+    public static CompareAlgorithms getInstance(){
+        if(comparison == null){
+            comparison= new CompareAlgorithms();
+            return comparison;
+        }
+        else return comparison;
+    }
+    
+    public static CompareAlgorithms getInstance(int[] arr){
+        if(comparison == null){
+            comparison= new CompareAlgorithms(arr);
+            return comparison;
+        }
+        else return comparison;
     }
 
     public void setArray(int[] arr) {
         this.arr = arr;
     }
+
+    public int getNumberOfAlgorithms() {
+        return numberOfAlgorithms;
+    }
     
     long[] compare(){
-        long[] executionTime= new long[sortingAlgorithm.length];
-        for(int i= 0; i < sortingAlgorithm.length; i++){
+        long[] executionTime= new long[sortingAlgorithms.length];
+        for(int i= 0; i < sortingAlgorithms.length; i++){
             long startingTime= System.nanoTime();
-            sortingAlgorithm[i].sort(arr.clone());
+            sortingAlgorithms[i].sort(arr.clone());
             long endingTime= System.nanoTime();
             executionTime[i]= (endingTime - startingTime) / 1000000;
         }
