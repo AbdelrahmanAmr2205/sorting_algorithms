@@ -12,12 +12,12 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args){
-        CompareAlgorithms comparison= CompareAlgorithms.getInstance(generateRandomArray(1000));
+        CompareAlgorithms comparison= CompareAlgorithms.getInstance(Utilities.generateRandomArray(1000));
         final int noOfAlgorithms= comparison.getNumberOfAlgorithms(), noOfSamples= 7;
         long[][] executionTime= new long[noOfSamples][noOfAlgorithms];
         executionTime[0]= comparison.compare();
         for(int i=0; i < noOfSamples - 1; i++ ){
-            comparison.setArray(generateRandomArray(25000 * (int)Math.pow(2, i)));
+            comparison.setArray(Utilities.generateRandomArray(25000 * (int)Math.pow(2, i)));
             executionTime[i+1]= comparison.compare();
         }
         for(int i= 0; i < noOfAlgorithms; i++){
@@ -48,12 +48,4 @@ public class Main {
         }
     }
     
-    public static int[] generateRandomArray(int size){
-        int[] arr= new int[size];
-        Random random= new Random();
-        for(int i : arr){
-            i= random.nextInt();
-        }
-        return arr;
-    }
 }

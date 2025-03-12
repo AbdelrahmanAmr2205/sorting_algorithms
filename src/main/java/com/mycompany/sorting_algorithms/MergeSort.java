@@ -53,7 +53,7 @@ public class MergeSort implements SortingStrategy {
     
     public static void main(String[] args) {
         MergeSort mySort= new MergeSort();
-        int[] arr= new int[]{3,5,8,7,9,2,1,6,15,11,12};
+        int[] arr= Utilities.generateRandomArray(50);
         System.out.println(Arrays.toString(mySort.sort(arr)));
     }
 }

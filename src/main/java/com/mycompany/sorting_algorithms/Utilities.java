@@ -4,6 +4,8 @@
  */
 package com.mycompany.sorting_algorithms;
 
+import java.util.Random;
+
 /**
  *
  * @author boody
@@ -13,5 +15,14 @@ public class Utilities {
         int temp= arr[i];
         arr[i]= arr[j];
         arr[j]= temp;
+    }
+
+    public static int[] generateRandomArray(int size) {
+        int[] arr = new int[size];
+        Random random = new Random();
+        for (int i=0; i < arr.length; i++) {
+            arr[i] = random.nextInt();
+        }
+        return arr;
     }
 }
