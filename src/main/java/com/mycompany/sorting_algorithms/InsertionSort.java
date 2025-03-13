@@ -12,7 +12,22 @@ public class InsertionSort implements SortingStrategy {
 
     @Override
     public int[] sort(int[] arr) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for(int i= 1; i < arr.length; i++){
+            int key= arr[i];
+            int j= i-1;
+            while(j >= 0 && arr[j] > key){
+                arr[j+1]= arr[j];
+                j--;
+            }
+            arr[j+1]= key;
+        }
+        return arr;
     }
     
+    public static void main(String[] args) {
+        SortingStrategy mySort= new InsertionSort();
+        int[] arr= Utilities.generateRandomArray(50);
+        System.out.println(Utilities.isSorted(arr));
+        System.out.println(Utilities.isSorted(mySort.sort(arr)));
+    }
 }

@@ -42,7 +42,7 @@ public class Main {
                     break;
             }
             for(int j= 0; j < noOfSamples; j++){
-                System.out.print(executionTime[i][j] + "\t");
+                System.out.print(executionTime[j][i] + "\t");
             }
             System.out.println();
         }

@@ -4,7 +4,6 @@
  */
 package com.mycompany.sorting_algorithms;
 
-import java.util.Arrays;
 
 /**
  *
@@ -47,8 +46,9 @@ public class HeapSort implements SortingStrategy{
     }
     
     public static void main(String[] args){
-        HeapSort mySort= new HeapSort();
-        int[] arr= new int[]{3,5,8,7,9,2,1,6,15,11,12};
-        System.out.println(Arrays.toString(mySort.sort(arr)));
+        SortingStrategy mySort= new HeapSort();
+        int[] arr= Utilities.generateRandomArray(50);
+        System.out.println(Utilities.isSorted(arr));
+        System.out.println(Utilities.isSorted(mySort.sort(arr)));
     }
 }

@@ -4,7 +4,6 @@
  */
 package com.mycompany.sorting_algorithms;
 
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -50,8 +49,9 @@ public class QuickSort implements SortingStrategy {
     }
     
     public static void main(String[] args) {
-        QuickSort mySort= new QuickSort();
+        SortingStrategy mySort= new QuickSort();
         int[] arr= Utilities.generateRandomArray(50);
-        System.out.println(Arrays.toString(mySort.sort(arr)));
+        System.out.println(Utilities.isSorted(arr));
+        System.out.println(Utilities.isSorted(mySort.sort(arr)));
     }
 }
