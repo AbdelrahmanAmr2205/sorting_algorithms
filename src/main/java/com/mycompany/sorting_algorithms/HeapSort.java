@@ -15,7 +15,7 @@ public class HeapSort implements SortingStrategy{
     @Override
     public int[] sort(int[] arr) {
         heapSize= arr.length;
-        heapifyArray(arr);
+        buildMaxHeap(arr);
         while(heapSize > 1){
             Utilities.swap(arr, 0, heapSize - 1);
             heapSize--;
@@ -39,16 +39,9 @@ public class HeapSort implements SortingStrategy{
         }
     }
     
-    private void heapifyArray(int[] arr){
+    private void buildMaxHeap(int[] arr){
         for(int i= (arr.length - 2) / 2; i >= 0; i--){
             maxHeapify(arr, i);
         }
-    }
-    
-    public static void main(String[] args){
-        SortingStrategy mySort= new HeapSort();
-        int[] arr= Utilities.generateRandomArray(50);
-        System.out.println(Utilities.isSorted(arr));
-        System.out.println(Utilities.isSorted(mySort.sort(arr)));
     }
 }

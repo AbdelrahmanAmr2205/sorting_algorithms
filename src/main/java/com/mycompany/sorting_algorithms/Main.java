@@ -4,7 +4,6 @@
  */
 package com.mycompany.sorting_algorithms;
 
-import java.util.Random;
 
 /**
  *
@@ -13,14 +12,20 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args){
         CompareAlgorithms comparison= CompareAlgorithms.getInstance(Utilities.generateRandomArray(1000));
-        final int noOfAlgorithms= comparison.getNumberOfAlgorithms(), noOfSamples= 7;
+        int[] sizes= {1000, 10000, 25000, 50000, 100000, 500000};
+        final int noOfAlgorithms= comparison.getNumberOfAlgorithms(), noOfSamples= sizes.length;
         long[][] executionTime= new long[noOfSamples][noOfAlgorithms];
-        executionTime[0]= comparison.compare();
-        for(int i=0; i < noOfSamples - 1; i++ ){
-            comparison.setArray(Utilities.generateRandomArray(25000 * (int)Math.pow(2, i)));
-            executionTime[i+1]= comparison.compare();
+        for(int i=0; i < noOfSamples; i++ ){
+            comparison.setArray(Utilities.generateRandomArray(sizes[i]));
+            executionTime[i]= comparison.compare();
         }
-        for(int i= 0; i < noOfAlgorithms; i++){
+        printResult(executionTime, noOfSamples, noOfAlgorithms);
+        int[] arr= {3, 41,16, 25, 63, 52, 40};
+        System.out.println(part8.findkthSmallestElement(arr, 3));
+    }
+    
+    public static void printResult(long[][] arr, int n, int m){
+        for(int i= 0; i < m; i++){
             switch(i){
                 case 0: 
                     System.out.print("Selection Sort: ");
@@ -41,8 +46,8 @@ public class Main {
                     System.out.print("Heap Sort: ");
                     break;
             }
-            for(int j= 0; j < noOfSamples; j++){
-                System.out.print(executionTime[j][i] + "\t");
+            for(int j= 0; j < n; j++){
+                System.out.print(arr[j][i] + "\t");
             }
             System.out.println();
         }

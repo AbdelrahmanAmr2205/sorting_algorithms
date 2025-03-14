@@ -33,4 +33,10 @@ public class Utilities {
         }
         return true;
     }
+    
+    public static int getRandomNumberInRange(int start, int end){
+        Random random= new Random();
+        int num= random.nextInt(start, end + 1);
+        return num;
+    }
 }

@@ -27,7 +27,7 @@ public class MergeSort implements SortingStrategy {
         }
     }
     
-    private void merge(int[] arr, int[] tempArr, int left,int mid, int right){
+    static void merge(int[] arr, int[] tempArr, int left,int mid, int right){
         System.arraycopy(arr, left,tempArr, left, right - left + 1);
         int i= left, j= mid + 1, k= left;
         while(i <= mid && j <= right){
@@ -44,12 +44,5 @@ public class MergeSort implements SortingStrategy {
         while(j <= right){
             arr[k++]= tempArr[j++];
         }
-    }
-    
-    public static void main(String[] args) {
-        SortingStrategy mySort= new MergeSort();
-        int[] arr= Utilities.generateRandomArray(50);
-        System.out.println(Utilities.isSorted(arr));
-        System.out.println(Utilities.isSorted(mySort.sort(arr)));
     }
 }

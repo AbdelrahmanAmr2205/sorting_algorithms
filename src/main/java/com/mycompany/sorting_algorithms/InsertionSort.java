@@ -23,11 +23,4 @@ public class InsertionSort implements SortingStrategy {
         }
         return arr;
     }
-    
-    public static void main(String[] args) {
-        SortingStrategy mySort= new InsertionSort();
-        int[] arr= Utilities.generateRandomArray(50);
-        System.out.println(Utilities.isSorted(arr));
-        System.out.println(Utilities.isSorted(mySort.sort(arr)));
-    }
 }

@@ -27,7 +27,7 @@ public class QuickSort implements SortingStrategy {
     }
     
     private int partition(int[] arr, int left, int right){
-        int pivot= getPivot(left, right);
+        int pivot= Utilities.getRandomNumberInRange(left, right);
         Utilities.swap(arr, pivot, right);
         pivot= arr[right];
         int i= left - 1;
@@ -40,18 +40,5 @@ public class QuickSort implements SortingStrategy {
         i++;
         Utilities.swap(arr, i, right);
         return i;
-    }
-    
-    private int getPivot(int start, int end){
-        Random random= new Random();
-        int pivot= random.nextInt(start, end + 1);
-        return pivot;
-    }
-    
-    public static void main(String[] args) {
-        SortingStrategy mySort= new QuickSort();
-        int[] arr= Utilities.generateRandomArray(50);
-        System.out.println(Utilities.isSorted(arr));
-        System.out.println(Utilities.isSorted(mySort.sort(arr)));
     }
 }
