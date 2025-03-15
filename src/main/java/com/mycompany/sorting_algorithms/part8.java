@@ -17,43 +17,17 @@ public class part8 {
         }
         int left= 0, right= arr.length - 1;
         int[] tempArr= arr.clone();
-        Num target= partition(tempArr, left, right);
-        while(target.index != k -1){
-            if(target.index > k-1 ){
-                right= target.index -1;
-                target= partition(tempArr, left, right);
+        int target= QuickSort.partition(tempArr, left, right);
+        while(target != k -1){
+            if(target > k-1 ){
+                right= target -1;
+                target= QuickSort.partition(tempArr, left, right);
             }
             else{
-                left= target.index + 1;
-                target= partition(tempArr, left, right);
+                left= target + 1;
+                target= QuickSort.partition(tempArr, left, right);
             }
         }
-        return target.number;
-    }  
-    
-    private static Num partition(int[] arr, int left, int right){
-        int pivot= Utilities.getRandomNumberInRange(left, right);
-        Utilities.swap(arr, pivot, right);
-        pivot= arr[right];
-        int i= left - 1;
-        for(int j= left; j < right; j++){
-            if(arr[j] < pivot){
-                i++;
-                Utilities.swap(arr,i,j);
-            }
-        }
-        i++;
-        Utilities.swap(arr, i, right);
-        return new Num(arr[i], i);
-    }
-    
-    private static class Num{
-        private int number;
-        private int index;
-        
-        Num(int number, int index){
-            this.index= index;
-            this.number= number;
-        }
+        return tempArr[target];
     }
 }

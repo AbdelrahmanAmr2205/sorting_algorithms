@@ -26,7 +26,7 @@ public class QuickSort implements SortingStrategy {
         }
     }
     
-    private int partition(int[] arr, int left, int right){
+    static int partition(int[] arr, int left, int right){
         int pivot= Utilities.getRandomNumberInRange(left, right);
         Utilities.swap(arr, pivot, right);
         pivot= arr[right];

@@ -12,7 +12,7 @@ package com.mycompany.sorting_algorithms;
 public class Main {
     public static void main(String[] args){
         CompareAlgorithms comparison= CompareAlgorithms.getInstance(Utilities.generateRandomArray(1000));
-        int[] sizes= {1000, 10000, 25000, 50000, 100000, 500000};
+        int[] sizes= {1000, 25000, 50000, 100000, 200000, 400000, 800000};
         final int noOfAlgorithms= comparison.getNumberOfAlgorithms(), noOfSamples= sizes.length;
         long[][] executionTime= new long[noOfSamples][noOfAlgorithms];
         for(int i=0; i < noOfSamples; i++ ){
