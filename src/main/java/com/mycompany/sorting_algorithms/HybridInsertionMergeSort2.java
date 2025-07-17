@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
  *
  * @author boody
  */
-public class EnhancenedHybridMergeSort implements SortingStrategy {
+public class HybridInsertionMergeSort2 implements SortingStrategy {
 
     private class HeapNode implements Comparable<HeapNode>{
         
@@ -70,7 +70,7 @@ public class EnhancenedHybridMergeSort implements SortingStrategy {
     }
     
     public static void main(String[] args){
-        EnhancenedHybridMergeSort sorting= new EnhancenedHybridMergeSort();
+        HybridInsertionMergeSort2 sorting= new HybridInsertionMergeSort2();
         int[] arr= sorting.sort(Utilities.generateRandomArray(1000000));
         System.out.println(Utilities.isSorted(arr));
     }
